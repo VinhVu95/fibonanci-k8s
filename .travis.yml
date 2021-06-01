@@ -1,0 +1,16 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t vinhvu/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true vinhvu/react-test npm test
+
+after_success:
+  - docker build -t vinhvu/multi-client ./client
+  - docker build -t vinhvu/multi-nginx ./nginx
+  - docker build -t vinhvu/multi-server ./server
+  - docker build -t vinhvu/multi-worker ./worker
+
