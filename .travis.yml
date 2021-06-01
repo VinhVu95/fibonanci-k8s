@@ -16,8 +16,8 @@ after_success:
   - docker build -t vinhvu/multi-worker ./worker
   # Log in to docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push vinhvu95/multi-client
-  - docker push vinhvu95/multi-nginx
-  - docker push vinhvu95/multi-server
-  - docker push vinhvu95/multi-worker
+  - docker push vinhvu/multi-client
+  - docker push vinhvu/multi-nginx
+  - docker push vinhvu/multi-server
+  - docker push vinhvu/multi-worker
 
