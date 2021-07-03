@@ -9,9 +9,11 @@ spec:
             component: web
     template:
       metadata:
-        label:
+        labels:
           component: web
-        spec:
-          containers:
-              - name: client
-                image: vinhvu0495/multi-client
+      spec:
+        containers:
+            - name: client
+              image: vinhvu0495/multi-client
+              ports:
+                - containerPort: 3000
